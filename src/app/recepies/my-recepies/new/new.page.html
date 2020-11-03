@@ -1,0 +1,237 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/recepies/tabs/my-recepies"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Recepie</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCreateRecepie()" [disabled]="!form1.valid || !form1.get('image').valid || 
+      recepie.tags.length <=0 || recepie.ingredients.length <=0 || recepie.steps.length <=0">
+        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="text-align: center; padding: 12px">
+  <form [formGroup]="form1">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating">Title</ion-label>
+          <ion-input type="text" formControlName="title"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating">Description</ion-label>
+          <ion-input type="text" formControlName="description"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating">Calories</ion-label>
+          <ion-input type="text" formControlName="calories"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating">Duration</ion-label>
+          <ion-input type="text" formControlName="time"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="!slika">
+      <ion-col size-sm="6" offset-sm="3">
+        <app-image-picker (imagePick)="onRecepieImagePicked($event)"
+        [showPreview]="form1.get('image').value"></app-image-picker>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="slika">
+      <ion-col size-sm="6" offset-sm="3">
+       <ion-img [src]="slika"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+<p>Ingredients</p>
+<form [formGroup]="form">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating">Name</ion-label>
+          <ion-input type="text" formControlName="name"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating">Amount</ion-label>
+          <ion-input type="text" formControlName="amount"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="slika1">
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-img [src]="slika1"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="!slika1">
+      <ion-col size-sm="6" offset-sm="3">
+        <app-image-picker (imagePick)="onImagePicked($event)"
+        [showPreview]="form.get('image').value"></app-image-picker>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3"> 
+        <ion-button
+        type="submit"
+          color="primary"
+          expand="block"
+          [disabled]="!form.valid || !form.get('image').valid"
+          (click)="addIngredient()"
+        >Add</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</form>
+<ion-row>
+  <ion-col size-sm="6" offset-sm="3"> 
+    <ion-list>
+      <ion-item-sliding *ngFor="let ing of recepie.ingredients" #slidingItem
+      >
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-img [src]="ing.imageUrl"></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ ing.name }}</h2>
+          <p>{{ ing.amount }}</p>
+          </ion-label>
+          </ion-item>
+        <ion-item-options>
+          <ion-item-option
+            color="danger"
+            (click)="onDelete(ing.name,slidingItem)"
+          >
+            <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-col>
+</ion-row>
+
+<p>Tags</p>
+<form #f2="ngForm" (ngSubmit)="addTag()">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating">Tags</ion-label>
+          <ion-select [ngModel]="'dinner'" name="tag">
+            <ion-select-option value="breakfast">Breakfast</ion-select-option>
+            <ion-select-option value="lunch">Lunch</ion-select-option>
+            <ion-select-option value="dinner">Dinner</ion-select-option>
+            <ion-select-option value="vegetarian">Vegetarian</ion-select-option>
+            <ion-select-option value="sweets">Sweets</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3"> 
+        <ion-button
+        type="submit"
+          color="primary"
+          expand="block"
+          [disabled]="!f2.valid"
+        >Add</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+<ion-row>
+  <ion-col size-sm="6" offset-sm="3">
+    <ion-list>
+      <ion-item-sliding *ngFor="let tag of recepie.tags" #slidingItem
+      >
+      <ion-item>
+    
+        <ion-label>
+          <h3>{{ tag }}</h3>
+          </ion-label>
+          </ion-item>
+        <ion-item-options>
+          <ion-item-option
+            color="danger"
+            (click)="onDeleteTag(tag,slidingItem)"
+          >
+            <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-col>
+</ion-row>
+<p>Steps</p>
+<form #f3="ngForm" (ngSubmit)="addStep()">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating">Step</ion-label>
+          <ion-input type="text" name="step" required 
+          ngModel></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3"> 
+        <ion-button
+        type="submit"
+          color="primary"
+          expand="block"
+          [disabled]="!f3.valid"
+        >Add</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+<ion-row>
+  <ion-col size-sm="6" offset-sm="3">
+    <ion-list>
+      <ion-item-sliding *ngFor="let step of recepie.steps" #slidingItem
+      >
+      <ion-item>
+    
+        <ion-label>
+          <h3>{{ step }}</h3>
+          </ion-label>
+          </ion-item>
+        <ion-item-options>
+          <ion-item-option
+            color="danger"
+            (click)="onDeleteStep(step,slidingItem)"
+          >
+            <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-col>
+</ion-row>
+
+
+</ion-content>

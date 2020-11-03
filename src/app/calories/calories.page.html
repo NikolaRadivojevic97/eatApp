@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Calories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+     <ion-col size-md="6" offset-md="3" style="text-align: center;" *ngIf="isLoading">
+        <ion-spinner color="primary"></ion-spinner>
+      </ion-col>
+      <ion-col size-md="6" offset-md="3" *ngIf="!isLoading && goalSet && (!loadedCalories || loadedCalories.length <= 0)"
+      style="text-align: center;">
+        <p>You didn't eat anything today</p>
+      </ion-col>
+      <ion-col size-md="6" offset-md="3"
+      *ngIf="loadedCalories.length > 0 && !isLoading && goalSet">
+      
+      <ion-item style=" border-radius: 5%; margin-top: 10px;">  
+        <ion-thumbnail slot="start" style="display: flex; align-items: center;">
+          <ion-icon name="flame" style="font-size: 30px;"></ion-icon>
+        </ion-thumbnail>
+        <ion-label>
+          <p>Goal Calories:</p>
+          <strong><h2>{{ goalCalories }}</h2></strong>
+          <p>Your Today's Calories:</p>
+          <strong><h2>{{ totalCalories }}</h2></strong>
+        </ion-label>
+      </ion-item>
+      <hr style="border-top: 1px solid grey; margin-top: 0; margin-bottom: 4%;
+      margin-left: 12%;">
+        <ion-list>
+            <ion-item *ngFor="let calories of loadedCalories">
+              <ion-thumbnail slot="start">
+                <ion-img [src]="calories.recepieImage"></ion-img>
+              </ion-thumbnail>
+              <ion-label>
+                <h5>{{ calories.recepieName }}</h5>
+                <p> {{ calories.calories }}</p>
+              </ion-label>
+            </ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-md="6" offset-md="3" style="text-align: center;" *ngIf="!goalSet && !isLoading">
+        <form #f="ngForm" (ngSubmit)="submitForm(f)">
+          <ion-grid>
+            <ion-row>
+              <ion-col size-sm="6" offset-sm="3">
+                <ion-item>
+                  <ion-label position="floating">Height</ion-label>
+                  <ion-input type="number" name="height" required min="100"
+                  ngModel></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size-sm="6" offset-sm="3">
+                <ion-item>
+                  <ion-label position="floating">Weight</ion-label>
+                  <ion-input type="number" name="weight" required min="40"
+                  ngModel></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size-sm="6" offset-sm="3">
+                <ion-item>
+                  <ion-label position="floating">Gender</ion-label>
+                  <ion-select [ngModel]="'male'" name="gender">
+                    <ion-select-option value="male">Male</ion-select-option>
+                    <ion-select-option value="female">Female</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size-sm="6" offset-sm="3">
+                <ion-item>
+                  <ion-label position="floating">Physical Activity</ion-label>
+                  <ion-select [ngModel]="'3'" name="activity">
+                    <ion-select-option value="1">1</ion-select-option>
+                    <ion-select-option value="2">2</ion-select-option>
+                    <ion-select-option value="3">3</ion-select-option>
+                    <ion-select-option value="4">4</ion-select-option>
+                    <ion-select-option value="5">5</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size-sm="6" offset-sm="3">
+                <ion-item>
+                  <ion-label position="floating">Goal</ion-label>
+                  <ion-select [ngModel]="'lose_weight'" name="goal">
+                    <ion-select-option value="lose_weight">Lose Weight</ion-select-option>
+                    <ion-select-option value="gain_weight">Gain Weight</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size-sm="6" offset-sm="3"> 
+                <ion-button
+                style="margin-top: 50px;"
+                type="submit"
+                  color="primary"
+                  expand="block"
+                  [disabled]="!f.valid"
+                >Start With Plan</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

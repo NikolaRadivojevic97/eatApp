@@ -1,0 +1,40 @@
+<ion-app>
+  <ion-menu side="start">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+         Recepies
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+        <ion-item lines="none" routerLink='/recepies/tabs/all'>
+          <ion-icon name="fast-food-outline" slot="start"></ion-icon>
+          <ion-label>Recepies</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item lines="none" routerLink="/ingredients">
+          <ion-icon name="cart-outline" slot="start"></ion-icon>
+          <ion-label>Ingredients</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item lines="none" routerLink="/calories">
+          <ion-icon name="flame" slot="start"></ion-icon>
+          <ion-label>Calories</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item lines="none" (click)="onLogout()" button>
+          <ion-icon name="exit" slot="start"></ion-icon>
+          <ion-label>Logout</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      </ion-list>        
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
+</ion-app>

@@ -1,0 +1,133 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/recepies/tabs/all"></ion-back-button>
+    </ion-buttons>
+    <!--<ion-title>{{ isLoading? 'Loading..': place.title }}</ion-title> -->
+    <ion-title>{{ recepie.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <div style="text-align: center;" *ngIf="isLoading">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+  <ion-grid style="padding: 0;">
+    <ion-row *ngIf="!isLoading">
+      <ion-col size-sm="6" offset-sm="3" style="padding: 0;">
+        <ion-img [src]="recepie.imageUrl"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="!isLoading">
+      <ion-col size-sm="6" offset-sm="3" style="text-align: left;">
+        <ion-item  color="secondary" style=" border-radius: 5%; margin-top: 10px;">  
+          <ion-thumbnail slot="start" style="display: flex; align-items: center;">
+            <ion-icon name="person-outline" style="font-size: 30px;"></ion-icon>
+          </ion-thumbnail>
+          <ion-label>
+            <p>recipe by</p>
+            <h3>Fit&Sit</h3>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="!isLoading">
+      <ion-col size-sm="6" offset-sm="3" style="text-align: center;">
+        <ion-item style="margin-left: 10px; margin-right: 10px; border-radius: 5%;
+        ">  
+          <ion-thumbnail slot="start" style="display: flex; align-items: center;">
+            <ion-icon name="hourglass" style="font-size: 30px;"></ion-icon>
+          </ion-thumbnail>
+          <ion-label>
+            <p>Total Time</p>
+            <h2>{{recepie.time}}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="!isLoading">
+      <ion-col size-sm="6" offset-sm="3" style="text-align: center;">
+        <ion-item style="margin-left: 10px; margin-right: 10px; margin-right: 10px; border-radius: 5%;">  
+          <ion-thumbnail slot="start" style="display: flex; align-items: center;">
+            <ion-icon name="flame"  style="font-size: 30px;"></ion-icon>
+          </ion-thumbnail>
+          <ion-label>
+            <p>Calories</p>
+            <h2>{{recepie.calories}}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="!isLoading">
+      <ion-col size-sm="6" offset-sm="3" style="text-align: center; margin-top: 10px;">
+        <ion-item class="ion-no-padding" style="margin-left: 10px; margin-right: 10px;">  
+          <ion-label>
+            <p style="padding-left: 4%; padding-right: 4%;">{{recepie.description}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    
+
+
+    <ion-row *ngIf="!isLoading">
+      <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center">
+        <h2>Ingredients</h2>
+        <hr>
+        <ion-list style="margin-left: 6px; margin-right: 6px">
+          <ion-item-sliding  *ngFor="let ing of recepie.ingredients" #slidingItem>
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <ion-img [src]="ing.imageUrl"></ion-img>
+            </ion-thumbnail>
+            <ion-label>
+              <h2>{{ing.name}}</h2>
+              <p>{{ ing.amount }}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item-options>
+            <ion-item-option
+              color="primary"
+              (click)="onAddIngredient(ing,slidingItem)"
+            >
+              <ion-icon name="cart-outline" slot="icon-only"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row *ngIf="!isLoading">
+      <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center">
+        <h2>Preparation</h2>
+        <hr>
+        <ion-list style="margin-left: 6px; margin-right: 6px">
+          <ion-item *ngFor="let step of recepie.steps; let i = index" 
+          >
+            <!-- //thumbnail/avatar su nam samo kocka i krug za izgled samo -->
+            <ion-label>
+              <h3 style="color: primary;">{{ i+1 }}</h3>
+              <p>{{step}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="!isLoading">
+      <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center">
+       
+          <ion-button
+            color="primary"
+            expand="block"
+            (click)="eaten(recepie)"
+          >Finished eating</ion-button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
