@@ -1,5 +1,5 @@
 # Fit&Sit
-<p align="center">
+<p>
 PWA made using Angular and Ionic framework. Application have functionalities of recipe book, shopping list and calories tracker.
 </p>
 
