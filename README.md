@@ -2,11 +2,15 @@
 <h4 align="center">
 PWA made using Angular and Ionic framework. Application have functionalities of recipe book, shopping list and calories tracker.
 </h4>
+
 # Motivation
+
 <h4>
 This application aims to make it easier for the user to take care of their diet and help them lead a healthier life.
 </h4>
+
 # Screenshots
+
 Sign up/Login page
 <img src="https://drive.google.com/file/d/1Au2pnDwYfMFv6K1LBDjgNqqb0Qf_hHC4/view">
 All recepies page
@@ -25,7 +29,10 @@ Shopping list
 <img src="https://drive.google.com/file/d/13gvQlL6cbtwFk2BTQArl5E35lsLd2oSK/view?usp=sharing">
 Calories tracker
 <img src="https://drive.google.com/file/d/1WSk1zt3GzXh4J_l9iv_uy1C5Hb3NS_sg/view?usp=sharing">
+
 ## Used tehnologies
+
+
 <ul>
   <li>HTML</li>
   <li>CSS</li>
