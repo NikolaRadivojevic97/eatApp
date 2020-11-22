@@ -87,6 +87,15 @@ Calories tracker
 - [ ] Graphical represenattion of calories
 - [ ] Ability to change calorie goals
 
+## Installation
+Install dependencies
+```sh
+npm install
+```
+## Run the app on the browser
 
+```sh
+ionic serve
+```
 ## How to use
 <p>When the user launches the application, the login form is displayed.  User can inspect recipe page only after logging process is successful. The user has the option of searching for recipes through segments that indicate categories. Selecting a recipe displays a description of the recipe, ingredients that can be added to the shopping list and also recipe's preparation process. Pressing the "+" label which is placed under my recipes segment shows the form for adding a new recipe. Clicking on the charger in the side menu opens a form where user can add data. Calory goal for every user is calculated based on the data entered in this form.</p>
