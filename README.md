@@ -14,21 +14,23 @@ This application aims to make it easier for the user to take care of their diet 
 Sign up/Login page
 <a href="https://ibb.co/YBRTkPj"><img src="https://i.ibb.co/B2zKZcs/Screenshot-from-2020-11-14-13-26-56.png" alt="Screenshot-from-2020-11-14-13-26-56" border="0"></a>
 All recepies page
-<img src="https://drive.google.com/file/d/17owJzc5sMJ96Q7jdD9R6cw92CqYME4Nv/view?usp=sharing">
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/FnCRXJx/Screenshot-from-2020-11-14-13-27-26.png" alt="Screenshot-from-2020-11-14-13-27-26" border="0"></a>
 Sweets tab
-<img src="https://drive.google.com/file/d/17TSGWzONW2hZR2qJ9Nz7kRUrpF0BL4Xo/view?usp=sharing">
+<a href="https://ibb.co/dWXW1y0"><img src="https://i.ibb.co/7YBY8FJ/Screenshot-from-2020-11-14-13-27-55.png" alt="Screenshot-from-2020-11-14-13-27-55" border="0"></a>
 Choosen recepie with supplies and preparation process
-<img src="https://drive.google.com/file/d/1MDlPkkk8UCsL2IcV_KzJIOfP8rCmMvFc/view?usp=sharing">
-<img src="https://drive.google.com/file/d/1H07k9_vVoRw5xHFJLc5E68eeMxd5HljS/view?usp=sharing">
-<img src="https://drive.google.com/file/d/1mEuB2fNE7bZ5ygMLizFlgbm1sjAMCvz7/view?usp=sharing">
+<a href="https://ibb.co/JvDdrC2"><img src="https://i.ibb.co/bsc3N7L/Screenshot-from-2020-11-14-13-29-25.png" alt="Screenshot-from-2020-11-14-13-29-25" border="0"></a>
+<a href="https://ibb.co/3SQwppF"><img src="https://i.ibb.co/zPD1XX2/Screenshot-from-2020-11-14-13-30-16.png" alt="Screenshot-from-2020-11-14-13-30-16" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/vQ97HJz/Screenshot-from-2020-11-14-13-30-29.png" alt="Screenshot-from-2020-11-14-13-30-29" border="0"></a>
 My receipes
-<img src="https://drive.google.com/file/d/1Jwom_UpJpC_FuMU-wUhLQWUPn8dlzQ0U/view?usp=sharing">
+<a href="https://ibb.co/XWmmkKL"><img src="https://i.ibb.co/x2VV8BL/Screenshot-from-2020-11-14-13-28-09.png" alt="Screenshot-from-2020-11-14-13-28-09" border="0"></a>
 Adding new recepie
-<img src="https://drive.google.com/file/d/1pVBsgYQOjeuVqRQskWvZGDDgECEjwkAg/view?usp=sharing">
+<a href="https://ibb.co/n6rzXbK"><img src="https://i.ibb.co/NtxZ0sG/Screenshot-from-2020-11-14-13-28-57.png" alt="Screenshot-from-2020-11-14-13-28-57" border="0"></a>
 Shopping list
-<img src="https://drive.google.com/file/d/13gvQlL6cbtwFk2BTQArl5E35lsLd2oSK/view?usp=sharing">
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/mSC9cqh/Screenshot-from-2020-11-14-13-31-03.png" alt="Screenshot-from-2020-11-14-13-31-03" border="0"></a>
+
 Calories tracker
-<img src="https://drive.google.com/file/d/1WSk1zt3GzXh4J_l9iv_uy1C5Hb3NS_sg/view?usp=sharing">
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/Ctj6zPQ/Screenshot-from-2020-11-14-13-31-25.png" alt="Screenshot-from-2020-11-14-13-31-25" border="0"></a>
+
 
 ## Used tehnologies
 
