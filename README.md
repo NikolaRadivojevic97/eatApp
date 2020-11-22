@@ -12,7 +12,7 @@ This application aims to make it easier for the user to take care of their diet 
 # Screenshots
 
 Sign up/Login page
-<img src="https://drive.google.com/file/d/1Au2pnDwYfMFv6K1LBDjgNqqb0Qf_hHC4/view">
+<img src="https://ibb.co/YBRTkPj">
 All recepies page
 <img src="https://drive.google.com/file/d/17owJzc5sMJ96Q7jdD9R6cw92CqYME4Nv/view?usp=sharing">
 Sweets tab
